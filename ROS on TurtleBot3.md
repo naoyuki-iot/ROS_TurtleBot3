@@ -23,7 +23,8 @@ To get the IP address of the Wi-Fi router(Remote PC connected), Use Terminal on 
 inet addr 192.168.x.xxx
 ```
 Copy this IP address.
-Next,enter the command`$ nano ~/.bashrc`on another terminal.Then,
+Next,enter the command`$ nano ~/.bashrc`on another terminal.  
+Therefore,
 ```
 export ROS_MASTER_URI=http://192.168.y.yyy:11311
 export ROS_HOSTNAME=192.168.y.yyy
