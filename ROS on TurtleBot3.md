@@ -61,8 +61,9 @@ $ nano ~/.bashrc
   export ROS_HOSTNAME=RASPBERRY_PI_3_IP 
 ```
 REMOTE_PC_IP      :`192.168.x.xxx`(referenced §1.3)  
-RASPBERRY_PI_3_IP : Enter the command`$ ifconfig` on TurtleBot PC(referenced §1.3)
-therefore,
+RASPBERRY_PI_3_IP : Enter the command`$ ifconfig` on TurtleBot PC(referenced §1.3)  
+
+Therefore,
 ```
 export ROS_MASTER_URI=http://192.168.x.xxx:11311 
 export ROS_HOSTNAME=192.168.zzz.zzz 
