@@ -50,25 +50,30 @@ $ sudo ntpdate ntp.ubuntu.com
 ```
 ### 2.2 Network Configuration
 #### TurtleBot PC
+#### bash
 ```
-nano ~/.bashrc
+$ nano ~/.bashrc
   (modify `localhost` to REMOTE_PC_IP and RASPBERRY_PI_3_IP)
-
+```
+#### nano
+```
   export ROS_MASTER_URI=http://REMOTE_PC_IP:11311 
   export ROS_HOSTNAME=RASPBERRY_PI_3_IP 
-  source ~/.bashrc
 ```
 REMOTE_PC_IP      :`192.168.x.xxx`(referenced §1.3)  
 RASPBERRY_PI_3_IP : Enter the command`$ ifconfig` on TurtleBot PC(referenced §1.3)
-
 therefore,
 ```
 export ROS_MASTER_URI=http://192.168.x.xxx:11311 
 export ROS_HOSTNAME=192.168.zzz.zzz 
 ```
-
+save and exit nano.
+#### bash
+```
+$ source ~/.bashrc
+```
 #### Remote PC
 Connect to TurtleBot PC via SSH from Remote PC.
 ```
-ssh pi@192.168.zzz.zzz (The IP 192.168.zzz.zzz is your Raspberry Pi's IP or hostname)
+$ ssh pi@192.168.zzz.zzz (The IP 192.168.zzz.zzz is your Raspberry Pi's IP or hostname)
 ```
