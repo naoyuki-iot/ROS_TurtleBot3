@@ -35,7 +35,7 @@ export ROS_HOSTNAME=192.168.x.xxx
 ```
 After modified,save and exit nano(ctrl+x) and enter the command `$ source ~/.bashrc`
 
-## 2.TurtleBot3 Setup(preinstalled "Raspbian for TurtleBot3" on Raspberry Pi 3)
+## 2.TurtleBot PC Setup(preinstalled "Raspbian for TurtleBot3" on Raspberry Pi 3)
 Raspbian for TurtleBot3 download link(http://www.robotis.com/service/download.php?no=1738)
 ### 2.1 Install ROS 1 on "Raspbian for TurtleBot3"
 After the installation, you can login with username: `pi` and password: `turtlebot`. Next,expand filesystem to use a whole SD card.
@@ -48,12 +48,27 @@ Next,with using NTP sync date and time.
 $ sudo apt-get install ntpdate
 $ sudo ntpdate ntp.ubuntu.com
 ```
-### 2.2 Network Configuration (Raspbian)
+### 2.2 Network Configuration
+#### TurtleBot PC
 ```
 nano ~/.bashrc
   (modify `localhost` to REMOTE_PC_IP and RASPBERRY_PI_3_IP)
 
-  export ROS_MASTER_URI=http://REMOTE_PC_IP:11311
-  export ROS_HOSTNAME=RASPBERRY_PI_3_IP
+  export ROS_MASTER_URI=http://REMOTE_PC_IP:11311 
+  export ROS_HOSTNAME=RASPBERRY_PI_3_IP 
   source ~/.bashrc
+```
+REMOTE_PC_IP      :`192.168.x.xxx`(referenced §1.3)  
+RASPBERRY_PI_3_IP : Enter the command`$ ifconfig` on TurtleBot PC(referenced §1.3)
+
+therefore,
+```
+export ROS_MASTER_URI=http://192.168.x.xxx:11311 
+export ROS_HOSTNAME=192.168.zzz.zzz 
+```
+
+#### Remote PC
+Connect to TurtleBot PC via SSH from Remote PC.
+```
+ssh pi@192.168.zzz.zzz (The IP 192.168.zzz.zzz is your Raspberry Pi's IP or hostname)
 ```
