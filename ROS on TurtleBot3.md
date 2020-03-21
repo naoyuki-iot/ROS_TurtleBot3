@@ -18,19 +18,19 @@ $ cd ~/catkin_ws && catkin_make
 ```
 
 ### 1.3 Network Configuration
-To get the IP address of the Wi-Fi router(Remote PC connected), Use Terminal on Remote PC and Enter the command `$ ifconfig`.Then,
+To get the IP address of the Wi-Fi router(Remote PC connected), Use Terminal on Remote PC and enter the command `$ ifconfig`.Then,
 ```
 inet addr 192.168.x.xxx
 ```
 Copy this IP address.
-Next,Enter the command`$ nano ~/.bashrc`on another terminal.Then,
+Next,enter the command`$ nano ~/.bashrc`on another terminal.Then,
 ```
 export ROS_MASTER_URI=http://192.168.y.yyy:11311
 export ROS_HOSTNAME=192.168.y.yyy
 ```
-Above the code,ROS_MASTER_URI and ROS_HOSTNAME values modify copied IP address.
+Above the code,`ROS_MASTER_URI` and `ROS_HOSTNAME` values modify copied IP address.Then,
 ```
 export ROS_MASTER_URI=http://192.168.x.xxx:11311
 export ROS_HOSTNAME=192.168.x.xxx
 ```
-After modify,Enter the command `$ source ~/.bashrc`
+After modify,save and exit nano(ctrl+x) and enter the command `$ source ~/.bashrc`
