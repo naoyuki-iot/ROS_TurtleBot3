@@ -1,6 +1,6 @@
 # ROS on TurtleBot3
-## 1.PC Setup
-### 1.1 Install ROS 1 on Remote PC(need Terminal on Ubuntu 16.04)
+## 1.Remote PC Setup(preinstalled Ubuntu 16.04)
+### 1.1 Install ROS 1 on Remote PC
 ```
 $ sudo apt-get update
 $ sudo apt-get upgrade
@@ -33,4 +33,27 @@ Above the code,`ROS_MASTER_URI` and `ROS_HOSTNAME` values modify copied IP addre
 export ROS_MASTER_URI=http://192.168.x.xxx:11311
 export ROS_HOSTNAME=192.168.x.xxx
 ```
-After modify,save and exit nano(ctrl+x) and enter the command `$ source ~/.bashrc`
+After modified,save and exit nano(ctrl+x) and enter the command `$ source ~/.bashrc`
+
+## 2.TurtleBot3 Setup(preinstalled "Raspbian for TurtleBot3" on Raspberry Pi 3)
+Raspbian for TurtleBot3 download link(http://www.robotis.com/service/download.php?no=1738)
+### 2.1 Install ROS 1 on "Raspbian for TurtleBot3"
+After the installation, you can login with username: `pi` and password: `turtlebot`. Next,expand filesystem to use a whole SD card.
+```
+$ sudo raspi-config
+(select 7 Advanced Options > A1 Expand Filesystem)
+```
+Next,with using NTP sync date and time.
+```
+$ sudo apt-get install ntpdate
+$ sudo ntpdate ntp.ubuntu.com
+```
+### 2.2 Network Configuration (Raspbian)
+```
+nano ~/.bashrc
+  (modify `localhost` to REMOTE_PC_IP and RASPBERRY_PI_3_IP)
+
+  export ROS_MASTER_URI=http://REMOTE_PC_IP:11311
+  export ROS_HOSTNAME=RASPBERRY_PI_3_IP
+  source ~/.bashrc
+```
