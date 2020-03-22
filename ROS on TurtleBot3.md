@@ -245,3 +245,20 @@ Run teleoperation to estimate the root on the map.
 $ export TURTLEBOT3_MODEL=burger
 $ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 ```
+## 8.Simulation
+### 8.1 Simulation using Fake Node
+Enter the command below to use Fake Node and Simulation for TurtleBot3.
+```
+$ cd ~/catkin_ws/src/
+$ git clone https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+$ cd ~/catkin_ws && catkin_make
+```
+Launch `turtlebot3_fake` and `turtlebot3_teleop`
+```
+$ export TURTLEBOT3_MODEL=burger
+$ roslaunch turtlebot3_fake turtlebot3_fake.launch
+```
+```
+$ export TURTLEBOT3_MODEL=burger
+$ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
+```
