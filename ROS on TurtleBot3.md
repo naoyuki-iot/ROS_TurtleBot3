@@ -301,3 +301,32 @@ $ roslaunch turtlebot3_fake turtlebot3_fake.launch
 $ export TURTLEBOT3_MODEL=burger
 $ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 ```
+### 8.2 Simulation using Gazebo
+#### 8.2.1 Simulate in Various World - TurtleBot3 World
+Enter the command below.
+```
+$ export TURTLEBOT3_MODEL=burger
+$ roslaunch turtlebot3_gazebo turtlebot3_world.launch
+```
+#### 8.2.2 Drive TurtleBot3
+Teleoperation on Gazebo - enter the command in a new terminal.
+```
+$ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
+```
+Collision Avoidance - Simulation in TurtleBot3 World.  
+Enter the command in a new terminal.
+```
+$ export TURTLEBOT3_MODEL=burger
+$ roslaunch turtlebot3_gazebo turtlebot3_world.launch
+```
+Next,enter the command in a new terminal.
+```
+$ export TURTLEBOT3_MODEL=burger
+$ roslaunch turtlebot3_gazebo turtlebot3_simulation.launch
+```
+#### 8.2.3 Execute Rviz
+Launch Rviz in a new terminal.
+```
+$ export TURTLEBOT3_MODEL=burger
+$ roslaunch turtlebot3_gazebo turtlebot3_gazebo_rviz.launch
+```
