@@ -224,3 +224,24 @@ Then,
 ### 6.3 Save Map(after exploration)
 #### Remote PC
 Enter the command `$ rosrun map_server map_saver -f ~/map`
+## 7.Navigation
+### 7.1 Run Navigation
+#### Remote PC
+Run `$ roscore`
+#### TurtleBot PC
+Bringup roslaunch.
+
+```$ roslaunch turtlebot3_bringup turtlebot3_robot.launch```
+#### Remote PC
+Launch the navigation file.
+```
+$ export TURTLEBOT3_MODEL=burger
+$ roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/map.yaml
+```
+### 7.2 Estimate Initial Pose
+#### Remote PC
+Run teleoperation to estimate the root on the map.
+```
+$ export TURTLEBOT3_MODEL=burger
+$ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
+```
