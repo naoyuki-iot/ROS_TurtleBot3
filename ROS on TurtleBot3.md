@@ -163,7 +163,8 @@ And run Rviz.
 $ rosrun rviz rviz -d `rospack find turtlebot3_description`/rviz/model.rviz
 ```
 ## 5.Basic Operation
-### 5.1 Teleoperation - Keyboard control from Remote PC
+### 5.1 Teleoperation - Keyboard
+#### Remote PC
 Launch `turtlebot3_teleop_key`.
 ```
 $ export TURTLEBOT3_MODEL=burger
@@ -184,8 +185,46 @@ Then,
 
   CTRL-C to quit
 ```
-(Tips)It can be controlled not only with the keyboard but also with the game controller(Wii,PS3,Xbox 360). -> comming soon.
-
+### 5.2 Teleoperation - PS3 Joystick
+#### Remote PC
+Connect PS3 Joystick to the Remote PC via Bluetooth or USB.  
+Next,install packages for teleoperation using PS3 Joystick.
+```
+$ sudo apt-get install ros-kinetic-joy ros-kinetic-joystick-drivers ros-kinetic-teleop-twist-joy
+```
+Launch the installed packages using `$roslaunch`.
+```
+$ roslaunch teleop_twist_joy teleop.launch
+```
+### 5.3 Teleoperation - XBOX 360 Joystick
+#### Remote PC
+Connect XBOX 360 Joystick to the Remote PC via Wireless Adapter or USB.  
+Next,install packages for teleoperation using XBOX 360 Joystick.
+```
+$ sudo apt-get install xboxdrv ros-kinetic-joy ros-kinetic-joystick-drivers ros-kinetic-teleop-twist-joy
+```
+Launch the installed packages using `$roslaunch`.
+```
+$ sudo xboxdrv --silent
+$ roslaunch teleop_twist_joy teleop.launch
+```
+### 5.4 Teleoperation - Wii Remote
+#### Remote PC
+Connect Wii Remote to the Remote PC via Bluetooth.  
+Next,install packages for teleoperation using Wii Remote.
+```
+$ sudo apt-get install ros-kinetic-wiimote libbluetooth-dev libcwiid-dev
+```
+```
+$ cd ~/catkin_ws/src
+$ git clone https://github.com/ros-drivers/joystick_drivers.git  
+$ cd ~/catkin_ws && catkin_make
+```
+Launch the installed packages using `$roslaunch`.
+```
+$ rosrun wiimote wiimote_node
+$ rosrun wiimote teleop_wiimote
+```
 ## 6.SLAM
 SLAM - Simultaneous Localization and Mapping
 ### 6.1 Run SLAM
